@@ -1,0 +1,82 @@
+# Hotel Rate Comparator using Temporal Workflows
+
+## Overview
+
+A full-stack hotel rate comparison platform built with React, TypeScript, Node.js, Express, and Temporal.
+
+Users can search hotels by destination and travel dates, compare prices from two mock suppliers in parallel, and explore available options ranked from lowest to highest price. 
+
+## Technologies
+
+- React
+- TypeScript
+- Vite
+- Node.js
+- Express
+- Temporal SDK
+- Zod
+- Vitest
+
+## Features
+
+- Hotel search form
+- Loading and error states
+- Parallel supplier requests
+- Activity timeout and retry configuration
+
+
+## Run the project
+
+### Start Temporal
+
+From the project root:
+
+    docker compose up -d
+
+### Start the API
+
+    cd backend
+    npm install
+    npm run dev
+
+### Start the Temporal worker
+
+In a second terminal:
+
+    cd backend
+    npm run worker
+
+### Start the frontend
+
+In a third terminal:
+
+    cd frontend
+    cd vite-project
+    npm install
+    npm run dev
+
+Open the local URL printed by Vite.
+
+## API
+
+POST /api/search-hotels
+
+Example request:
+
+    {
+      "city": "Delhi",
+      "checkIn": "2026-11-01",
+      "checkOut": "2026-11-03"
+    }
+
+
+## Testing
+
+From the backend folder:
+
+    npm test
+
+## Limitations
+
+Supplier data is simulated. This project does not
+make real hotel reservations or payments.
